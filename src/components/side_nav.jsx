@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import {openCloseSideBar} from "../state/actions/sidebar/sidebar_action";
+import {connect} from "react-redux";
 class SideNav extends Component {
     state = {}
     render() {
         return (
             <>
-                <div className="sidenav-black-overlay"></div>
+                <div className={this.props.showsidebar ? "sidenav-black-overlay active" : "sidenav-black-overlay"}></div>
 
-                <div className="sidenav-wrapper" id="sidenavWrapper">
+                <div className={this.props.showsidebar ? "sidenav-wrapper nav-active":"sidenav-wrapper" } id="sidenavWrapper">
 
                     <div className="go-back-btn" id="goBack">
-                        <svg className="bi bi-x" width="24" height="24" viewBox="0 0 16 16" fill="currentColor"
+                        <svg onClick={()=>{
+                            this.props.openCloseSideBar()
+                        }} className="bi bi-x" width="24" height="24" viewBox="0 0 16 16" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path  d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z">
                             </path>
@@ -105,4 +109,16 @@ class SideNav extends Component {
     }
 }
 
-export default SideNav;
+const mapStateToProps = (state) => {
+    return {
+        showsidebar: state.sidebar.show_sidebar
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        openCloseSideBar: () => dispatch(openCloseSideBar())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideNav);
