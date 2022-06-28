@@ -4,7 +4,7 @@ const { BrowserRouter, Routes, Route } = require("react-router-dom");
 function AppRoutes() {
     return (
         <BrowserRouter>
-            <div class="page-content-wrapper">
+            <div className="page-content-wrapper">
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                 </Routes>
