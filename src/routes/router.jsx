@@ -1,12 +1,14 @@
 import LandingPage from "../pages/landing";
-const { BrowserRouter, Routes , Route} = require("react-router-dom");
+const { BrowserRouter, Routes, Route } = require("react-router-dom");
 
 function AppRoutes() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<LandingPage />} />
-            </Routes>
+            <div class="page-content-wrapper">
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                </Routes>
+            </div>
         </BrowserRouter>
     );
 }
