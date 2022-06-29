@@ -23,10 +23,10 @@ class Header extends Component {
                             <div className="page-heading">
                                 <h6 className="mb-0">page name here</h6>
                             </div>
-                            <div className="navbar--toggler" id="affanNavbarToggler"><span className="d-block"
-                                                                                           onClick={() => {
-                                                                                               this.props.openCloseSideBar()
-                                                                                           }}></span><span
+                            <div className="navbar--toggler" id="affanNavbarToggler" onClick={() => {
+                                this.props.openCloseSideBar()
+                            }}><span className="d-block"
+                            ></span><span
                                 className="d-block"></span><span className="d-block"></span></div>
                         </div>
                     </div>
