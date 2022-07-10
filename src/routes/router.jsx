@@ -10,7 +10,7 @@ function AppRoutes() {
         <BrowserRouter>
             <div className="page-content-wrapper">
                 <Routes>
-                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/" element={<LandingPage/>} />
                     <Route exact path="/login" name="Login" element={<LoggedInRoute><Login /></LoggedInRoute>} />
                     <Route exact path="/register" name="Login" element={<LoggedInRoute><Register /></LoggedInRoute>} />
                 </Routes>

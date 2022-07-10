@@ -6,6 +6,7 @@ import {openCloseSideBar} from "../state/actions/sidebar/sidebar_action";
 
 
 class Header extends Component {
+    
     render() {
         return (
             <div>
@@ -21,7 +22,7 @@ class Header extends Component {
                                 </svg>
                             </Link></div>
                             <div className="page-heading">
-                                <h6 className="mb-0">page name here</h6>
+                                <h6 className="mb-0">{this.props.name ?? ''}</h6>
                             </div>
                             <div className="navbar--toggler" id="affanNavbarToggler" onClick={() => {
                                 this.props.openCloseSideBar()

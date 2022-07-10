@@ -6,8 +6,7 @@ class LandingPage extends Component {
     render() { 
         return (
             <div>
-                <Header/>
-
+                <Header name={'Welcome'}/>
                 <Footer/>
             </div>
         );

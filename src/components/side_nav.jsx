@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
-import {openCloseSideBar} from "../state/actions/sidebar/sidebar_action";
-import {connect} from "react-redux";
+import { openCloseSideBar } from "../state/actions/sidebar/sidebar_action";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout } from '../state/actions/auth/auth_action';
 class SideNav extends Component {
+    
     state = {}
     render() {
+        console.log(this.props.isAuthenticated)
         return (
             <>
                 <div className={this.props.showsidebar ? "sidenav-black-overlay active" : "sidenav-black-overlay"}></div>
 
-                <div className={this.props.showsidebar ? "sidenav-wrapper nav-active":"sidenav-wrapper" } id="sidenavWrapper">
+                <div className={this.props.showsidebar ? "sidenav-wrapper nav-active" : "sidenav-wrapper"} id="sidenavWrapper">
 
                     <div className="go-back-btn" id="goBack">
-                        <svg onClick={()=>{
+                        <svg onClick={() => {
                             this.props.openCloseSideBar()
                         }} className="bi bi-x" width="24" height="24" viewBox="0 0 16 16" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
-                            <path  d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z">
+                            <path d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z">
                             </path>
-                            <path  d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z">
+                            <path d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z">
                             </path>
                         </svg>
                     </div>
@@ -38,7 +42,7 @@ class SideNav extends Component {
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z" />
-                                <path  d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                <path d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
                             </svg>Home</a></li>
                         <li><a href="elements.html">
                             <svg width="18" height="18" viewBox="0 0 16 16" className="bi bi-folder2-open" fill="currentColor"
@@ -87,14 +91,27 @@ class SideNav extends Component {
                                 </div>
                             </div>
                         </li>
-                        <li><a href="page-login.html">
-                            <svg width="18" height="18" viewBox="0 0 16 16" className="bi bi-box-arrow-right" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                <path
-                                    d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg>Logout</a></li>
+                        {this.props.isAuthenticated ?
+
+                            <li><Link to="" onClick={() => { this.props.logout() }}>
+                                <svg width="18" height="18" viewBox="0 0 16 16" className="bi bi-box-arrow-right" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                    <path
+                                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                </svg>Logout</Link></li> :
+
+                            <li><Link to="/login">
+                                <svg width="18" height="18" viewBox="0 0 16 16" className="bi bi-box-arrow-right" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                    <path
+                                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                </svg>Sign In</Link>
+                            </li>
+                        }
                     </ul>
 
                     <div className="social-info-wrap"><a href="/"><i className="fa fa-twitter"></i></a><a href="/"><i
@@ -111,13 +128,15 @@ class SideNav extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        showsidebar: state.sidebar.show_sidebar
+        showsidebar: state.sidebar.show_sidebar,
+        isAuthenticated: state.auth.isAuthenticated
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        openCloseSideBar: () => dispatch(openCloseSideBar())
+        openCloseSideBar: () => dispatch(openCloseSideBar()),
+        logout: () => dispatch(logout())
     }
 }
 
