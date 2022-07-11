@@ -1,11 +1,9 @@
-
-
 import { loginService } from "../../../services/auth/auth_service";
 import { signUpService } from "../../../services/auth/auth_service";
-import { Navigate } from "react-router-dom";
 
 
 export const login = (credentials, history) => {
+
   return (dispatch) => {
 
     if (credentials.password.length < 6) {
@@ -23,12 +21,8 @@ export const login = (credentials, history) => {
             } else if (res.status === 200 && res.data.success === true) {
               localStorage.setItem("token", res.data.token);
               localStorage.setItem("user", JSON.stringify(res.data.user));
-              console.log('yep it works');
-              <Navigate to="/"/>;
               dispatch({ type: "LOGIN_SUCCESS" });
-              
-              // window.location.reload();
-              
+              window.location.reload();
             } else if (res.status === 200 && res.data.success === false) {
               var error = res.data.message;
               dispatch({ type: "LOGIN_ERROR", error: error });
@@ -42,7 +36,7 @@ export const login = (credentials, history) => {
         );
       } catch (e) {
         dispatch({ type: "CODE_ERROR", e });
-        // dispatch({ type: "WARNING", e });
+        window.location.reload();
       }
     };
   }
@@ -51,7 +45,7 @@ export const login = (credentials, history) => {
 export const logout = (history) => {
   console.log(history);
   localStorage.clear();
-  <Navigate to="/login" />;
+
 };
 
 export const resetAuth = () => {

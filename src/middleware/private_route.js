@@ -1,7 +1,9 @@
 import React from "react";
 import {Outlet, Navigate} from 'react-router-dom';
   
-export const OnlyWhenNotLoggedIn = ({ children }) => {
+export const PrivateRoute = ({ children }) => {
     const authed = localStorage.getItem('token')
-    return authed === null ?  <Outlet/> :<Navigate to="/" />;
-  }
+    return authed === null ?  <Navigate to="/login"/>  : <Outlet/> ;
+
+}
+

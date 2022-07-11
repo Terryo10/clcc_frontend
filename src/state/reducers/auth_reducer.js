@@ -2,7 +2,7 @@ const initState = {
   authResponse: null,
   loading: false,
   error: false,
-  isAuthenticated: false,
+  isAuthenticated:  localStorage.getItem('token') != null,
 };
 
 const AuthReducer = (state = initState, action) => {
@@ -40,7 +40,6 @@ const AuthReducer = (state = initState, action) => {
         authResponse: "log In Successfull",
         loading: false,
         error: false,
-        isAuthenticated: true
       };
     case "LOGIN_ERROR":
       console.log(action)
@@ -56,7 +55,6 @@ const AuthReducer = (state = initState, action) => {
         authResponse: "",
         loading: false,
         error: false,
-        isAuthenticated: false
       };
     default:
       return state;
