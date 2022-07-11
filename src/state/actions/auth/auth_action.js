@@ -1,9 +1,11 @@
 import { loginService } from "../../../services/auth/auth_service";
 import { signUpService } from "../../../services/auth/auth_service";
+import { customHistory } from "../../../custom_browser_router";
+
 
 
 export const login = (credentials, history) => {
-
+  
   return (dispatch) => {
 
     if (credentials.password.length < 6) {
@@ -14,7 +16,6 @@ export const login = (credentials, history) => {
       try {
         loginService(credentials, history).then(
           (res) => {
-
             if (res.status !== 200 || undefined) {
               console.log(res)
               dispatch({ type: "LOGIN_ERROR", res });
@@ -22,7 +23,7 @@ export const login = (credentials, history) => {
               localStorage.setItem("token", res.data.token);
               localStorage.setItem("user", JSON.stringify(res.data.user));
               dispatch({ type: "LOGIN_SUCCESS" });
-              window.location.reload();
+              customHistory.push("/dashboard");
             } else if (res.status === 200 && res.data.success === false) {
               var error = res.data.message;
               dispatch({ type: "LOGIN_ERROR", error: error });

@@ -4,10 +4,16 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from '../state/actions/auth/auth_action';
 class SideNav extends Component {
-    
     state = {}
+    logout = (e) => {
+        this.props.logout()
+        this.props.openCloseSideBar()
+    }
+
+    signIn = (e) => {
+        this.props.openCloseSideBar()
+    }
     render() {
-        console.log(this.props.isAuthenticated)
         return (
             <>
                 <div className={this.props.showsidebar ? "sidenav-black-overlay active" : "sidenav-black-overlay"}></div>
@@ -29,10 +35,10 @@ class SideNav extends Component {
                     <div className="sidenav-profile">
                         <div className="sidenav-style1"></div>
 
-                        <div className="user-profile"><img src="img/bg-img/2.jpg" alt="" /></div>
+                        <div className="user-profile"><img src="template/img/bg-img/2.jpg" alt="" /></div>
 
                         <div className="user-info">
-                            <h6 className="user-name mb-0">Affan Islam</h6><span>CEO, Designing World</span>
+                            <h6 className="user-name mb-0">Tapiwa Tererai</h6><span>Choose Life</span>
                         </div>
                     </div>
 
@@ -93,7 +99,7 @@ class SideNav extends Component {
                         </li>
                         {this.props.isAuthenticated ?
 
-                            <li><Link to="" onClick={() => { this.props.logout() }}>
+                            <li><Link to="" onClick={() => { this.logout()  } }>
                                 <svg width="18" height="18" viewBox="0 0 16 16" className="bi bi-box-arrow-right" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -102,7 +108,7 @@ class SideNav extends Component {
                                         d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
                                 </svg>Logout</Link></li> :
 
-                            <li><Link to="/login">
+                            <li><Link to="/login" onClick={() => { this.signIn() } }>
                                 <svg width="18" height="18" viewBox="0 0 16 16" className="bi bi-box-arrow-right" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -113,12 +119,11 @@ class SideNav extends Component {
                             </li>
                         }
                     </ul>
-
                     <div className="social-info-wrap"><a href="/"><i className="fa fa-twitter"></i></a><a href="/"><i
                         className="fa fa-facebook"></i></a><a href="/"><i className="fa fa-dribbble"></i></a></div>
 
                     <div className="copyright-info">
-                        <p>&copy; 2020 All rights reserved by<a href="/">Designing World</a></p>
+                        <p>&copy; 2022 All rights reserved by<a href="https://designave.co.zw">DesignAve</a></p>
                     </div>
                 </div>
             </>

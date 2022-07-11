@@ -4,7 +4,7 @@ class BibleSchoolDashoboard extends Component{
     render(){
         return(
             <div><h1>
-                bible scool dashboard</h1></div>
+                bible school dashboard</h1></div>
         )
     }
 

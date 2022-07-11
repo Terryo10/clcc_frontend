@@ -1,24 +1,16 @@
-// import { Outlet, Navigate } from 'react-router-dom';
+// import {Navigate} from "react-router-dom";
+import ParentDashoboard from "../pages/parent/dashboard";
+import ChurchDashboard from "../pages/church/dashboard";
+import TeacherDashboard from "../pages/teacher/dashboard";
+import StudentDashboard from "../pages/student/dashboard";
 
-export  function isAdmin() {
+export const IsParent = () => {
+    console.log('fires');
     const user = localStorage.getItem('user');
     if (user) {
         const userObj = JSON.parse(user);
-        if (userObj.type === "admin") {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
-};
-
-export  function isParent() {
-    const user = localStorage.getItem('user');
-    if (user) {
-        const userObj = JSON.parse(user);
-        if (userObj.type === "parent") {
+        console.log(userObj);
+        if (userObj.type === 1) {
             return true;
         } else {
             return false;
@@ -28,11 +20,11 @@ export  function isParent() {
     }
 }
 
-export  function isStudent() {
+export const IsStudent = () => {
     const user = localStorage.getItem('user');
     if (user) {
         const userObj = JSON.parse(user);
-        if (userObj.type === "student") {
+        if (userObj.type === 2) {
             return true;
         } else {
             return false;
@@ -42,11 +34,11 @@ export  function isStudent() {
     }
 }
 
-export  function isTeacher() {
+export const IsTeacher = () => {
     const user = localStorage.getItem('user');
     if (user) {
         const userObj = JSON.parse(user);
-        if (userObj.type === "teacher") {
+        if (userObj.type === 3) {
             return true;
         } else {
             return false;
@@ -57,8 +49,9 @@ export  function isTeacher() {
 }
 
 
-// export const IsAdmin = ({ children }) => {
-//     const authed = localStorage.getItem('token')
-//     return authed === null ? <Navigate to="/login" /> : isAdmin ? <Outlet /> : <Navigate to="/dashboard" />;
-
-// }
+export const IsAdmin = ({children}) => {
+    return IsParent() ? <ParentDashoboard/> :
+        IsTeacher() ? <TeacherDashboard/> :
+            IsStudent() ? <StudentDashboard/> :
+                <ChurchDashboard/>;//general population
+}

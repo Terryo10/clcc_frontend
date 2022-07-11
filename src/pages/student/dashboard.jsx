@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 class StudentDashboard extends Component{
     render(){
-        return(
-            <div><h1>
-                bible scool dashboard</h1></div>
+        return (
+            <div>
+                <Header name={'Student DashBoard'} />
+                <Footer />
+            </div>
         )
     }
 

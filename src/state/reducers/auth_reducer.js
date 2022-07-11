@@ -14,7 +14,8 @@ const AuthReducer = (state = initState, action) => {
         authResponse: "",
         loading: true,
         error: false,
-        shortPassword: false
+        shortPassword: false,
+        isAuthenticated:  localStorage.getItem('token') != null,
       };
     case "SHORT_PASSWORD":
       console.log(action);
@@ -23,7 +24,8 @@ const AuthReducer = (state = initState, action) => {
         authResponse: action.message,
         loading: false,
         error: false,
-        shortPassword: true
+        shortPassword: true,
+        isAuthenticated:  localStorage.getItem('token') != null,
       };
     case "CODE_ERROR":
       console.log(action);
@@ -31,7 +33,8 @@ const AuthReducer = (state = initState, action) => {
         ...state,
         authResponse: "seems to be a problem please try again later",
         loading: false,
-        error: false
+        error: false,
+        isAuthenticated:  localStorage.getItem('token') != null,
       };
     case "LOGIN_SUCCESS":
       console.log(action);
@@ -40,6 +43,7 @@ const AuthReducer = (state = initState, action) => {
         authResponse: "log In Successfull",
         loading: false,
         error: false,
+        isAuthenticated:  localStorage.getItem('token') != null,
       };
     case "LOGIN_ERROR":
       console.log(action)
@@ -47,7 +51,8 @@ const AuthReducer = (state = initState, action) => {
         ...state,
         authResponse: action.error,
         loading: false,
-        error: true
+        error: true,
+        isAuthenticated:  localStorage.getItem('token') != null,
       };
     case "RESETAUTH":
       return {
@@ -55,6 +60,7 @@ const AuthReducer = (state = initState, action) => {
         authResponse: "",
         loading: false,
         error: false,
+        isAuthenticated:  localStorage.getItem('token') != null,
       };
     default:
       return state;

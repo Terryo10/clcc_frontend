@@ -4,9 +4,7 @@ import { OnlyWhenNotLoggedIn } from "../middleware/is_authenticated";
 import {PrivateRoute} from "../middleware/private_route";
 import Register from "../pages/auth/register"; 
 import { Routes, Route } from "react-router-dom";
-import AdminDashboard from "../admin/dashboard";
-import {isAdmin} from "../middleware/is_admin";
-import ChurchDashboard from "../pages/church/dashboard";
+import {IsAdmin} from "../middleware/is_admin";
 
 
 function AppRoutes() {
@@ -17,10 +15,9 @@ function AppRoutes() {
                 <Route element={<OnlyWhenNotLoggedIn />}>
                     <Route exact path="/login" name="Login" element={<Login />} />
                     <Route exact path="/register" name="Login" element={<Register />} />
-                    
                 </Route>
                 <Route element={<PrivateRoute />}>
-                    <Route exact path="/dashboard" name="Login" element={isAdmin ? <AdminDashboard/> : <ChurchDashboard/>} />
+                <Route exact path="/dashboard" name="Login" element={ <IsAdmin/> } />
                 </Route>
             </Routes>
         </div>

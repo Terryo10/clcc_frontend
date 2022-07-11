@@ -5,7 +5,7 @@ class ChurchDashboard extends Component {
         return (
             <div>
                 <h1>
-                    bible scool dashboard
+                    church dashboard
                 </h1>
             </div>
         )
