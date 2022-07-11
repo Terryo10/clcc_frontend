@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
-class ChurchDashboard extends Component {
+class Donate extends Component {
     render() {
         return (
             <div>
-                <Header name={'Church DashBoard'} />
+                <Header name={'Donate and Partnership'} />
                 <Footer />
             </div>
         )
@@ -14,4 +14,4 @@ class ChurchDashboard extends Component {
 
 }
 
-export default ChurchDashboard;
+export default Donate;

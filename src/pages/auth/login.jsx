@@ -93,6 +93,7 @@ class Login extends Component {
 
               <div className="login-meta-data text-center"><Link className="stretched-link forgot-password d-block mt-3 mb-1" to="/fogot_password ">Forgot Password?</Link>
                 <p className="mb-0">Didn't have an account?<Link className="ms-1 stretched-link" to="/register">Register Now</Link></p>
+                <p className="mb-0">Browse Without an account ?<Link className="ms-1 stretched-link" to="/">Go Back To home</Link></p>
               </div>
             </div>
           </div>

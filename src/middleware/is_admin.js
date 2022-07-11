@@ -5,11 +5,9 @@ import TeacherDashboard from "../pages/teacher/dashboard";
 import StudentDashboard from "../pages/student/dashboard";
 
 export const IsParent = () => {
-    console.log('fires');
     const user = localStorage.getItem('user');
     if (user) {
         const userObj = JSON.parse(user);
-        console.log(userObj);
         if (userObj.type === 1) {
             return true;
         } else {
