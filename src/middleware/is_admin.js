@@ -3,6 +3,7 @@ import ParentDashoboard from "../pages/parent/dashboard";
 import ChurchDashboard from "../pages/church/dashboard";
 import TeacherDashboard from "../pages/teacher/dashboard";
 import StudentDashboard from "../pages/student/dashboard";
+import BibleSchoolDashoboard from "../pages/bible_school/dashboard";
 
 export const IsParent = () => {
     const user = localStorage.getItem('user');
@@ -46,10 +47,24 @@ export const IsTeacher = () => {
     }
 }
 
+export const IsBibleScholar = () => {
+    const user = localStorage.getItem('user');
+    if (user) {
+        const userObj = JSON.parse(user);
+        if (userObj.type === 4) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
 
-export const IsAdmin = ({children}) => {
-    return IsParent() ? <ParentDashoboard/> :
-        IsTeacher() ? <TeacherDashboard/> :
-            IsStudent() ? <StudentDashboard/> :
-                <ChurchDashboard/>;//general population
+
+export const IsAdmin = ({ children }) => {
+    return IsParent() ? <ParentDashoboard /> :
+        IsTeacher() ? <TeacherDashboard /> :
+            IsStudent() ? <StudentDashboard /> : IsBibleScholar() ? <BibleSchoolDashoboard /> :
+                <ChurchDashboard />;//general population
 }

@@ -7,6 +7,7 @@ class LandingPage extends Component {
         return (
             <div>
                 <Header name={'Welcome'}/>
+                
                 <Footer/>
             </div>
         );

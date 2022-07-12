@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import {IsAdmin} from "../middleware/is_admin";
 import NotFound from "../pages/not_found";
 import Donate from "../pages/donations/donate";
+import Library from "../pages/library/library";
 
 
 function AppRoutes() {
@@ -21,6 +22,9 @@ function AppRoutes() {
                 </Route>
                 <Route element={<PrivateRoute />}>
                 <Route exact path="/dashboard" name="Login" element={<IsAdmin/> } />
+                </Route>
+                <Route exact path="/library" element={<Library/>}>
+
                 </Route>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>

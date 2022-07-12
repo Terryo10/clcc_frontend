@@ -1,0 +1,17 @@
+import React, { Component } from "react";
+import Header from '../../components/header';
+import Footer from '../../components/footer';
+
+class Library extends Component {
+    render() {
+        return (
+            <div>
+                <Header name={'Choose Life Christian College Library'} />
+                <Footer />
+            </div>
+        )
+    }
+
+}
+
+export default Library;

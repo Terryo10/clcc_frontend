@@ -5,7 +5,6 @@ const api = axios.create({
 
 class Api {
   postLoginData = async (addedurl, item) => {
-    // console.log(token)
     let data = await api.post(addedurl, item).then((response) => response);
     console.log(data);
     return data;
@@ -31,13 +30,12 @@ class Api {
 
   getData = async (addedurl, item) => {
     const token = await localStorage.getItem("token");
-    // console.log(token)
     let requestOptions = {
       headers: {
         Authorization: `Bearer ${token}`,
         "content-type": "Application/json",
       },
-      // body:JSON.stringify(item)
+     
     };
     let data = await api
       .get(addedurl, requestOptions, item)
@@ -47,21 +45,17 @@ class Api {
   };
 
   getUnauthenticatedData = async (addedurl, item) => {
-    // console.log(token)
     let data = await api.get(addedurl, item).then((response) => response);
-
     return data;
   };
 
   deleteData = async (addedurl) => {
     const token = await localStorage.getItem("token");
-    // console.log(token)
     let requestOptions = {
       headers: {
         Authorization: `Bearer ${token}`,
         "content-type": "Application/json",
       },
-      // body:JSON.stringify(item)
     };
     let data = await api
       .delete(addedurl, requestOptions)
