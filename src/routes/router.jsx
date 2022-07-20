@@ -8,6 +8,7 @@ import {IsAdmin} from "../middleware/is_admin";
 import NotFound from "../pages/not_found";
 import Donate from "../pages/donations/donate";
 import Library from "../pages/library/library";
+import ClassRoom from "../pages/classroom/classroom";
 
 
 function AppRoutes() {
@@ -22,6 +23,7 @@ function AppRoutes() {
                 </Route>
                 <Route element={<PrivateRoute />}>
                 <Route exact path="/dashboard" name="Login" element={<IsAdmin/> } />
+                <Route exact path="/classroom" name="Login" element={<ClassRoom/> } />
                 </Route>
                 <Route exact path="/library" element={<Library/>}>
 
