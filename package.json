@@ -19,6 +19,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
+    "simple-peer": "^9.11.1",
     "socket.io-client": "^4.5.1",
     "web-vitals": "^2.1.4"
   },
@@ -28,7 +29,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
   "browserslist": {
     "production": [
       ">0.2%",

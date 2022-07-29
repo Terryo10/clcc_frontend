@@ -31,7 +31,7 @@ class Register extends Component {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      confirm_password: this.state.password,
+      // confirm_password: this.state.password,
     };
     e.preventDefault();
     this.props.register(loginState, this.props.history);
