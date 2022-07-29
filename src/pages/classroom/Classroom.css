@@ -1,0 +1,15 @@
+.other_video{
+    width: 100%;
+}
+
+.space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
+  }
+
+@media screen and (max-width: 722px) {
+    .other_video{
+        width: 100px;
+    }
+}

@@ -2,7 +2,7 @@ import Api from '../api';
 
 export const signUpService =async (credentials) =>{
     const api = new Api();
-    let signupUrl = "/api/register"
+    let signupUrl = "/api/auth/register"
     try {
         const data = await api.postLoginData(signupUrl, credentials);
         return data;
@@ -13,7 +13,7 @@ export const signUpService =async (credentials) =>{
 
 export const loginService =async (credentials) =>{
     const api = new Api();
-    let signupUrl = "/api/login"
+    let signupUrl = "/api/auth/login"
     try {
         const data = await api.postLoginData(signupUrl, credentials);
         return data;

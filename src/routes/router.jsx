@@ -9,6 +9,7 @@ import NotFound from "../pages/not_found";
 import Donate from "../pages/donations/donate";
 import Library from "../pages/library/library";
 import ClassRoom from "../pages/classroom/classroom";
+import Meetings from "../pages/classroom/meetings";
 
 
 function AppRoutes() {
@@ -24,6 +25,8 @@ function AppRoutes() {
                 <Route element={<PrivateRoute />}>
                 <Route exact path="/dashboard" name="Login" element={<IsAdmin/> } />
                 <Route exact path="/classroom" name="Login" element={<ClassRoom/> } />
+                <Route exact path="/meetings" name="meetings" element={<Meetings/> } /> 
+
                 </Route>
                 <Route exact path="/library" element={<Library/>}>
 

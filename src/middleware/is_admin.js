@@ -9,7 +9,7 @@ export const IsParent = () => {
     const user = localStorage.getItem('user');
     if (user) {
         const userObj = JSON.parse(user);
-        if (userObj.type === 1) {
+        if (userObj.type === 'parent') {
             return true;
         } else {
             return false;
@@ -23,7 +23,7 @@ export const IsStudent = () => {
     const user = localStorage.getItem('user');
     if (user) {
         const userObj = JSON.parse(user);
-        if (userObj.type === 2) {
+        if (userObj.type === 'student') {
             return true;
         } else {
             return false;
@@ -37,7 +37,7 @@ export const IsTeacher = () => {
     const user = localStorage.getItem('user');
     if (user) {
         const userObj = JSON.parse(user);
-        if (userObj.type === 3) {
+        if (userObj.type === 'teacher') {
             return true;
         } else {
             return false;
@@ -51,7 +51,7 @@ export const IsBibleScholar = () => {
     const user = localStorage.getItem('user');
     if (user) {
         const userObj = JSON.parse(user);
-        if (userObj.type === 4) {
+        if (userObj.type === 'bibleschorlar') {
             return true;
         } else {
             return false;
